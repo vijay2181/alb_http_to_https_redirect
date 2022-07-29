@@ -1,0 +1,1 @@
+# alb_http_to_https_redirect
