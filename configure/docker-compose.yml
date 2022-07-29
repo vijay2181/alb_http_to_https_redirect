@@ -1,0 +1,21 @@
+---
+services:
+  haproxy:
+    build: .
+    container_name: haproxy
+    ports:
+      - "4000:80"
+    depends_on:
+      - web_app
+  web_app:
+    container_name: go_app
+    image: "momo89/go-hello-world"
+    environment:
+      PORT: 3000
+      APP_NAME: go_app
+    ports:
+      - "3000:3000"
+    volumes:
+      - $HOME:$HOME/home
+      - /data:/data
+version: "3"
