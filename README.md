@@ -35,7 +35,9 @@
 
 - goto the target group and check whether it is healthy or not
 
-![image](https://user-images.githubusercontent.com/66196388/181833528-ad0a7caf-428b-4f44-afd5-683bcb634b2a.png)
+![image](https://user-images.githubusercontent.com/66196388/181834521-312650cc-3a16-4b81-9fed-f393a13a74f5.png)
+
+
 
 
 - goto load balancer and check rules
