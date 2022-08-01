@@ -40,19 +40,29 @@ resource "aws_instance" "VIJAY-TERRAFORM" {
     "Backend" = "VIJAY"
     "Tenant"  = "TERRAFORM"
   }
+}
 
-  provisioner "file" {
-    source      = "configure"
-    destination = "/tmp"
-
-  }
+resource "null_resource" "configure-vm" {
 
   connection {
     type        = "ssh"
-    host        = self.public_ip
-    user        = "ec2-user"
+    host        = aws_instance.VIJAY-TERRAFORM.public_ip
+    user        = var.username
     private_key = file("/vagrant/${var.key_name}.pem")
     timeout     = "4m"
+    }
+
+  ## 
+  provisioner "file" {
+    source = "configure" 
+    destination = "/home/${var.username}/"
+  }
+
+  ## 
+  provisioner "remote-exec" {
+    inline = [
+      "sudo chmod +x /home/${var.username}/configure/*",
+    ]
   }
 }
 
