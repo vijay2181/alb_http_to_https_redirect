@@ -20,6 +20,14 @@ variable "key_name" {
   default     = "aws_key" #give keypair name in aws 
 }
 
+#username
+
+variable "username" {
+  description = "aws username"
+  type        = string
+  default     = "ec2-user" #give user-name
+}
+
 #profile
 
 variable "profile" {
